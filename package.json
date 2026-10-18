@@ -1,0 +1,29 @@
+{
+  "name": "noirmusic-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "NOIRMusic — local-first music player PWA. Import your files; nothing leaves the device.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host",
+    "test": "node --localstorage-file=./.node-localstorage --import ./scripts/test-register.mjs --test tests/",
+    "typecheck": "tsc -b --noEmit",
+    "icons": "node scripts/generate-icons.mjs"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^5.7.0",
+    "vite": "^7.0.0",
+    "vite-plugin-pwa": "^2.0.0"
+  }
+}

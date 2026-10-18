@@ -1,0 +1,106 @@
+/**
+ * NOIRMusic Web — design tokens.
+ *
+ * Transcribed from the native app's `Theme.swift` / DESIGN.md §3, which
+ * transcribed them from Feed's verified stylesheet. Light values are the
+ * defaults; dark overrides apply under [data-theme="dark"] or the system
+ * preference when the user has not chosen explicitly.
+ */
+
+:root {
+  /* Surfaces */
+  --bg: #f3efe7;
+  --surface: #faf7f0;
+  --surface-2: #eae4d8;
+  --text: #211d18;
+  --muted: #7d746a;
+  --accent: #a87b3f;
+  --accent-ink: #faf7f0;
+  --danger: #a44b40;
+  --hairline: rgba(23, 19, 16, 0.1);
+  --hairline-strong: rgba(23, 19, 16, 0.2);
+  --accent-wash: rgba(168, 123, 63, 0.1);
+
+  /* Typography */
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-fa: Vazirmatn, 'Instrument Serif', serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+
+  /* Spacing — native Metrics.swift */
+  --inset: 16px;
+  --section-gap: 20px;
+  --tight-gap: 8px;
+  --radius-s: 7px;
+  --radius-m: 10px;
+  --control-target: 44px;
+  --thumb: 46px;
+  --thumb-large: 76px;
+  --artwork-big: min(74vw, 340px);
+  --tabbar-height: 58px;
+  --topbar-height: 54px;
+
+  /* Type scale */
+  --size-brand: 24px;
+  --size-page-title: 24px;
+  --size-item-title: 20px;
+  --size-row-title: 17px;
+  --size-body: 15px;
+  --size-meta: 11px;
+  --size-empty-headline: 30px;
+
+  /* Transitions */
+  --transition-fast: 120ms ease-out;
+  color-scheme: light;
+}
+
+/* Explicit dark choice (Settings) beats the system preference. */
+:root[data-theme='dark'] {
+  --bg: #121110;
+  --surface: #1b1917;
+  --surface-2: #221f1c;
+  --text: #ece6dc;
+  --muted: #8f877b;
+  --accent: #c39a63;
+  --accent-ink: #191510;
+  --danger: #c96a5e;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+  --accent-wash: rgba(195, 154, 99, 0.1);
+  color-scheme: dark;
+}
+
+/* No explicit choice: follow the OS. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']):not([data-theme='dark']) {
+    --bg: #121110;
+    --surface: #1b1917;
+    --surface-2: #221f1c;
+    --text: #ece6dc;
+    --muted: #8f877b;
+    --accent: #c39a63;
+    --accent-ink: #191510;
+    --danger: #c96a5e;
+    --hairline: rgba(255, 255, 255, 0.08);
+    --hairline-strong: rgba(255, 255, 255, 0.16);
+    --accent-wash: rgba(195, 154, 99, 0.1);
+    color-scheme: dark;
+  }
+}
+
+/* Bundled fonts (OFL 1.1, copied from the native app's Resources/Fonts). */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/InstrumentSerif-Latin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Vazirmatn;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Vazirmatn.ttf') format('truetype');
+}

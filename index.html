@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F3EFE7" media="(prefers-color-scheme: light)" />
+    <meta
+      name="description"
+      content="NOIRMusic — a local-first music player. Import your files; nothing leaves your device."
+    />
+
+    <!-- iOS standalone PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="NOIRMusic" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png" />
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png" />
+
+    <title>NOIRMusic — your music, yours</title>
+
+    <style>
+      /* Startup paint: the shell's background appears before React mounts,
+         so launching never flashes white. Both appearances are covered. */
+      html,
+      body {
+        margin: 0;
+        background-color: #f3efe7;
+        color: #211d18;
+      }
+      @media (prefers-color-scheme: dark) {
+        html,
+        body {
+          background-color: #121110;
+          color: #ece6dc;
+        }
+      }
+      #root:empty::after {
+        content: 'NOIR';
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-size: 34px;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        color: rgba(168, 123, 63, 0.55);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
